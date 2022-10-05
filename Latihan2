@@ -1,0 +1,81 @@
+#1. TIPE DATA
+
+a <- c(1,2,-5,0.3,6,-2,4) # numeric vector
+b <- c("one","two","three") # character vector
+c <- c(TRUE,TRUE,TRUE,FALSE,TRUE) #logical vector
+print(a)
+print(b)
+print(c)
+
+#2. MATRIKS
+cells <- c(3,15,-27,38)
+r_reza <- c("R1", "R2")
+c_reza <- c("C1", "C2") 
+reza_matrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
+                      dimnames=list(r_reza, c_reza))
+print(reza_matrix)
+
+#3.DATA FRAME
+reza1 <- c(1,2,3,4)
+reza2 <- c("red", "white", "red", NA)
+reza3 <- c(TRUE,TRUE,TRUE,FALSE)
+dataku <- data.frame(reza1, reza2, reza3)
+names(dataku) <- c("ID","Color","Passed") # variable names 
+print(dataku)
+
+data_reza <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+print (data_reza)
+
+#4.Keempat
+
+install.packages("RMySQL")
+install.packages("dplyr")
+
+library(RMySQL)
+# KONEKSI KE DATABASE
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'houseprice', host = 'localhost')
+dbListTables(con) 
+myQuery <- "select * from reza;"
+df <- dbGetQuery(con, myQuery)
+
+#5. Kelima
+
+library(dplyr)
+df<-filter(df,Brick=="No")
+print(df)
+
+library(dplyr)
+df<-filter(df,Brick=="No"&Neighborhood=="East")
+print(df)
+
+
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'PS2Reza', host = 'localhost')
+dbListTables(con)
+myQuery <- "select * from data1;"
+df <- dbGetQuery(con, myQuery)
+
+library(dplyr)
+
+install.packages(dplyr)
+install.packages("dplyr")
+library("dplyr")
+df<-filter(df, Brick=="No")
+df<-filter(df,Brick=="No")
+
+#6. KEENAM
+
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'PS2Reza', host = 'localhost')
+dbListTables(con) 
+myQuery <- "select * from data1;"
+df <- dbGetQuery(con, myQuery)
+
+library(dplyr)
+df<-Filters(df,Brick=="No")
+print(df)
+
+library(dplyr)
+df<-filter(df,Brick=="No"|Neighborhood=="East")
+print(df)
